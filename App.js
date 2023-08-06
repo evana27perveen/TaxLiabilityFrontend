@@ -11,6 +11,7 @@ import Taxes from './src/Screens/CommonScreens/Taxes';
 import UpdateMe from './src/Screens/CommonScreens/UpdateMe';
 import Notifications from './src/Screens/CommonScreens/Notifications';
 import Notice from './src/Screens/CommonScreens/Notice';
+import Payment from './src/Screens/CommonScreens/Payment'
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,7 @@ export default function App() {
           <Stack.Screen name="Notice" component={Notice} options={{ headerShown: false }}/>
           <Stack.Screen name="UpdateMe" component={UpdateMe} options={{ headerShown: false }}/>
           <Stack.Screen name="Taxes" component={Taxes} options={{ headerShown: false }}/>
+          <Stack.Screen name="Payment" component={Payment} options={{ headerShown: false }}/>
         </Stack.Navigator>
       </NavigationContainer>
     </>

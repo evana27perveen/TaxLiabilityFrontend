@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   container: {
-    flex: 1, // Overlay color with transparency
+    flex: 1, 
     alignItems: 'center',
     justifyContent: 'center',
   },

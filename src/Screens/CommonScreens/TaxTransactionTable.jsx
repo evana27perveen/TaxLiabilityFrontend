@@ -34,12 +34,13 @@ const TaxTransactionTable = ({ header, transactions }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 3,
+    marginTop: 1,
     paddingHorizontal: 16,
     width: '100%',
+    minHeight: 200,
   },
   header: {
-    fontSize: 19,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#275c27',

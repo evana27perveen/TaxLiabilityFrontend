@@ -5,15 +5,18 @@ import NavBar from './NavBar';
 import TopBar from './TopBar';
 import TaxInformation from './TaxInformation';
 import TaxTransactionTable from './TaxTransactionTable';
+import PaymentButton from './PaymentButton';
 import NextTaxInfo from './NextTaxInfo';
 import { useCookies } from 'react-cookie';
 import API_BASE_URL from '../../apiConfig';
+import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
     const [activeButton, setActiveButton] = useState('home');
     const [reloadTrigger, setReloadTrigger] = useState(0);
 
     const [token] = useCookies(['myToken']);
+    const navigation = useNavigation();
 
     const [taxID, setTaxID] = useState(0);
     const [category, setCategory] = useState('');
@@ -54,7 +57,7 @@ const Home = () => {
           setTaxStatus(data.is_paid);
           setTransactions(data.transactions);
           setTax(data.tax);
-          console.log(data.transactions);
+
         }
       } catch (error) {
         console.log('Error fetching data:', error);
@@ -82,17 +85,19 @@ const Home = () => {
         taxCategory={category}
         taxStatus={taxStatus}
       />
-      <View style={styles.divider} />
         <TaxTransactionTable header={'Last Tax Transactions'} transactions={transactions}/>
+        {taxStatus === false && (
+          <>
+            <View style={styles.divider} />
+            <PaymentButton onPress={() => {navigation.navigate('Payment', { amount: tax });} }/>
+            <View style={styles.divider} />
+          </>
+        )}
         
         <NextTaxInfo amountToPay={tax} />
         <View style={styles.divider} />
-        {taxStatus === false && (
-          <>
-            <Text style={styles.notificationText}>This month's Tax is unpaid.</Text>
-            
-          </>
-        )}
+        <View style={styles.divider} />
+        <View style={styles.divider} />
         <View style={styles.divider} />
       </View>
       
@@ -104,7 +109,7 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -119,7 +124,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 1,
     backgroundColor: '#ccc',
-    marginVertical: 10,
+    marginVertical: 7,
   },
   notificationText: {
     fontSize: 12,

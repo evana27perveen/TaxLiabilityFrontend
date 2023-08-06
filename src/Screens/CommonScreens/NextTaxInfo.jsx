@@ -37,19 +37,19 @@ const NextTaxInfo = ({ amountToPay }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 18,
+    marginTop: 12,
     paddingHorizontal: 16,
     width: '100%',
     marginBottom: 10,
   },
   header: {
-    fontSize: 19,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#275c27',
   },
   table: {
-    marginTop: 10,
+    marginTop: 5,
     paddingBottom: 5,
     borderBottomWidth: 1,
   },
@@ -62,13 +62,13 @@ const styles = StyleSheet.create({
     paddingTop: 5,
   },
   label: {
-    fontSize: 15,
+    fontSize: 14,
     color: '#333',
     fontWeight: 'bold',
     marginRight: 10,
   },
   value: {
-    fontSize: 15,
+    fontSize: 14,
     color: '#333',
     
   },

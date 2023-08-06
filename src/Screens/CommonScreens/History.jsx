@@ -72,7 +72,7 @@ const History = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
     height: '100%',
